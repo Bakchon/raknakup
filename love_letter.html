@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จดหมายรักถึงฟ้าใส 💌</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+        body {
+            background: linear-gradient(to bottom, #a18cd1, #ff9a9e);
+            text-align: center;
+            font-family: 'Itim', cursive;
+            color: #ffffff;
+            margin: 50px;
+            overflow: hidden;
+        }
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: #ffccdd;
+            margin: 100px auto;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .envelope:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 100px solid #ff99bb;
+            top: -100px;
+            left: 0;
+        }
+        .letter {
+            position: absolute;
+            width: 280px;
+            height: 180px;
+            background: white;
+            top: 10px;
+            left: 10px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.5s;
+        }
+        .envelope.open .letter {
+            transform: translateY(0);
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #ff6699;
+        }
+        .game-section {
+            display: none;
+            background: white;
+            color: black;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .shake-button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background: #ff6699;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>จดหมายรักถึงฟ้าใส 💌</h1>
+    <div class="envelope" onclick="openLetter()">
+        <div class="letter">
+            <p>ถึง ฟ้าใส คนเดียวของเค้า 💖</p>
+            <p>เค้ารักเธอมาก ๆ นะ 🥰 ขอบคุณที่อยู่ด้วยกันตลอดมา</p>
+            <p>เธอคือคนที่ดีที่สุดของเค้าเสมอ 💕</p>
+        </div>
+    </div>
+    
+    <div class="game-section" id="gameSection">
+        <h2>เซียมซีเสี่ยงทาย 🔮</h2>
+        <button class="shake-button" onclick="shakeFortuneStick()">เขย่าเซียมซี</button>
+        <p id="fortuneResult"></p>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.querySelector('.envelope').classList.toggle('open');
+            setTimeout(() => {
+                document.getElementById('gameSection').style.display = 'block';
+            }, 1000);
+        }
+        
+        function shakeFortuneStick() {
+            const fortunes = [
+                "วันนี้ดวงดีสุดๆ! ขออะไรแฟนก็ได้! 💖",
+                "ระวังแฟนแกล้ง! แต่ยังไงก็รักอยู่ดี 🥰",
+                "ได้รับโชคลาภจากคนรัก อาจจะเป็นหอมแก้มหรือของกิน 😘",
+                "แฟนแอบคิดถึงอยู่ตอนนี้ รีบไปอ้อนเลย 💕",
+                "วันนี้แฟนจะน่ารักเป็นพิเศษ หัวใจละลายแน่นอน 😍",
+                "อย่าลืมบอกรักแฟนนะ เค้ารออยู่ 🥺",
+                "วันนี้เป็นวันดีสำหรับความรัก หยอดคำหวานเยอะๆ 💘",
+                "โชคดีเรื่องความรัก แฟนอาจจะมีเซอร์ไพรส์ให้! 🎁",
+                "แฟนอารมณ์ดีมากกก อ้อนให้เต็มที่เลย 💞",
+                "วันนี้จะมีโมเมนต์น่ารักๆ กับแฟน จำไว้ให้ดีนะ! 🌸"
+            ];
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            document.getElementById("fortuneResult").innerText = fortunes[randomIndex];
+        }
+    </script>
+</body>
+</html>
